@@ -1,0 +1,362 @@
+/* --- VARIABLES --- */
+:root {
+    --bg-base: #0a0a0d;
+    --bg-card: #121217;
+    --accent-blue: #1e90ff; /* Azul policial más serio */
+    --accent-dark: #333;
+    --text-main: #eaeaea;
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- FONDO CON MARCA DE AGUA DEL LOGO --- */
+body {
+    background-color: var(--bg-base);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Aquí está el logo de fondo */
+body::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vw;
+    height: 70vw;
+    background: url('img/logo.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0.04; /* Muy tenue para no estorbar la lectura */
+    z-index: -1;
+    pointer-events: none;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* --- MENÚ DE NAVEGACIÓN --- */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    background: rgba(10, 10, 13, 0.95);
+    border-bottom: 1px solid #222;
+    padding: 10px 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.nav-logo-img {
+    height: 60px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: 0.3s;
+    font-family: var(--font-heading);
+}
+
+nav ul li a:hover {
+    color: var(--accent-blue);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: 
+        radial-gradient(circle, rgba(10,10,13,0.5) 0%, rgba(10,10,13,1) 100%),
+        url('img/fondo.jpg') no-repeat center center/cover;
+    border-bottom: 1px solid #222;
+}
+
+.main-title {
+    font-size: 5rem;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #aaa;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+
+/* --- BOTÓN PRINCIPAL --- */
+.btn-primary {
+    display: inline-block;
+    padding: 15px 40px;
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    text-decoration: none;
+    background-color: var(--accent-blue);
+    border-radius: 3px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #fff;
+    color: var(--accent-blue);
+    transform: scale(1.05);
+}
+
+/* --- TÍTULOS DE SECCIÓN --- */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 50px;
+    border-bottom: 2px solid var(--accent-blue);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+section {
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- INFORMACIÓN --- */
+.info-box {
+    max-width: 800px;
+    background: var(--bg-card);
+    padding: 40px;
+    border-left: 4px solid var(--accent-blue);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #bbb;
+}
+
+.info-box p {
+    margin-bottom: 20px;
+}
+
+.server-data {
+    list-style: none;
+    margin-top: 30px;
+    background: #000;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.server-data li {
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+/* --- CORPORACIONES --- */
+.depts-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+}
+
+.dept-card {
+    background: var(--bg-card);
+    padding: 40px 30px;
+    width: 350px;
+    text-align: center;
+    border: 1px solid #222;
+    transition: 0.3s;
+}
+
+.dept-icon {
+    height: 90px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.dept-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.dept-card p {
+    font-size: 1.1rem;
+    color: #999;
+}
+
+.dept-card:hover {
+    border-color: var(--accent-blue);
+    transform: translateY(-5px);
+}
+
+/* --- REGLAS --- */
+.rules-box {
+    max-width: 900px;
+    width: 100%;
+}
+
+.rules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rule-item {
+    background: var(--bg-card);
+    padding: 25px;
+    border: 1px solid #222;
+}
+
+.rule-item h4 {
+    color: var(--accent-blue);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.rule-item p {
+    color: #bbb;
+    font-size: 1.1rem;
+}
+
+.rules-footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    color: #888;
+}
+
+/* --- GALERÍA --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.img-wrapper {
+    overflow: hidden;
+    border: 1px solid #222;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+    opacity: 0.8;
+}
+
+.img-wrapper:hover img {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: #050508;
+    border-top: 1px solid #222;
+}
+
+.footer-logo {
+    height: 60px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.footer-text {
+    font-family: var(--font-heading);
+    color: #555;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .main-title { font-size: 3rem; }
+    .subtitle { font-size: 1.1rem; }
+    nav ul { display: none; }
+}
+/* --- SLIDER / CARRUSEL ANIMADO --- */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 2px solid var(--accent-blue);
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.2);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    /* La animación dura 16 segundos en total (4 seg por cada una de las 4 fotos) */
+    animation: fadeEffect 16s infinite;
+}
+
+/* Tiempos de retraso para que aparezca una por una */
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 4s; }
+.slide:nth-child(3) { animation-delay: 8s; }
+.slide:nth-child(4) { animation-delay: 12s; }
+
+/* El efecto visual de aparecer y desaparecer */
+@keyframes fadeEffect {
+    0%   { opacity: 0; }
+    5%   { opacity: 1; }  /* Aparece suavemente */
+    25%  { opacity: 1; }  /* Se queda en pantalla su turno */
+    30%  { opacity: 0; }  /* Se desvanece para darle paso a la siguiente */
+    100% { opacity: 0; }  /* Se queda oculta mientras pasan las otras 3 */
+}
+
+/* Ajuste para celulares */
+@media (max-width: 768px) {
+    .slider-container {
+        height: 300px;
+    }
+}
